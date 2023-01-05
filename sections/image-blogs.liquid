@@ -1,0 +1,70 @@
+<section id="section--{{section.id}}">
+    <div class="image-blogs--wrapper">
+        {% for block in section.blocks %}
+            <div class="image-blogs--item">
+                <a href="{{block.settings.link_url}}">
+                {% if block.settings.image != blank %}
+                <img class="img" src="{{block.settings.image | img_url: '3000x2000'}}" alt="{{block.settings.image.alt}}">
+                {% endif %}
+                {% if block.settings.image_mobile != blank %}
+                <img class="img-mobile" src="{{block.settings.image_mobile | img_url: '400x500'}}" alt="{{block.settings.image_mobile.alt}}">
+                {%endif%}
+                {% if block.settings.image_text != blank %}
+                    <p class="img-text">{{block.settings.image_text}}</p>
+                {% endif %}
+                {% if block.settings.image_mobile_text != blank %}
+                    <p class="img-mobile-text">{{block.settings.image_mobile_text}}</p>                    
+                {% endif %} 
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{{'section-image-blogs.css'| asset_url | stylesheet_tag }}
+{% schema %}
+    {
+        "name": "Image Blogs",
+        "class": "image-blogs",
+        "blocks": [
+            {
+                "type": "blog",
+                "name": "image-blog",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Blog Image" 
+                    },
+                    {
+                        "type": "text",
+                        "id": "image_text",
+                        "label": "Text",
+                        "default": "Woman's"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image_mobile",
+                        "label": "Image on mobile"
+                    },
+                    {
+                        "type": "text",
+                        "id": "image_mobile_text",
+                        "label": "Text on mobile",
+                        "default": "Woman's"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link_url",
+                        "label": "Link url"
+                    }
+                ]
+            }
+        ],
+        "presets":[
+            {
+                "name":"Image Blogs"
+            }
+        ]
+    }
+{% endschema %}
+   

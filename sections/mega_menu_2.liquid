@@ -1,0 +1,148 @@
+    <div id=section--{{section.id}} class="mega-menu--wrapper" data-target="{{ section.settings.parent | handleize }}">
+        <div class="mega-menu--content">
+            {%- for block in section.blocks -%}
+            <div class="mega-menu--drop_down">
+                {% if block.settings.menu_img != blank %}
+                    {% if block.settings.img_link != blank %}
+                        <a href="{{block.settings.img_link}}">
+                            <img class="menu_img" src="{{block.settings.menu_img | img_url: '400x500'}}" alt="{{block.settings.menu_img.alt}}">
+                            <p class="img_text">{{block.settings.img_text}}</p>
+                        </a>
+                    {% endif %}    
+                {%endif%}
+                {% if linklists[block.settings.menu_1] != empty %}
+                    <ul class="mega-menu--link">
+                    {% for sublink in linklists[block.settings.menu_1].links %}
+                        <li class="mega-menu--link-list">
+                            <a href="{{ sublink.url }}">{{ sublink.title }}</a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+            {%- endfor -%}
+        </div>
+    </div>
+<style>
+    
+    .mega-menu--content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+    }
+    .mega-menu--drop_down {
+        padding: 5px;
+        position: relative;
+        height: max-content;
+    }
+    .mega-menu--drop_down:first-child{
+        font-weight: bold;
+    }
+    .mega-menu--link {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .mega-menu--link-list:first-child {
+        font-weight: bold;
+    }
+    .mega-menu--link-list {
+        padding: 5px;
+    }
+    .mega-menu--link-list:hover {
+        opacity: 0.5;
+    }
+    .mega-menu--link-list a {
+        text-decoration: none;
+        color: black;
+    }
+    .menu_img{
+       filter:brightness(0.6);
+       width: 300px;
+       object-fit: cover;
+    }
+    .menu_img:hover{
+        opacity: 0.5;
+    }
+    .img_text {
+        text-transform: uppercase;
+        position: absolute;
+        font-size: 30px;
+        color: #FFFFFF;
+        top: 50%;
+        margin:0;
+        transform: translate(0, -50%);
+        right: 0;
+        left: 0;
+        text-align: center;
+    }
+    .mega-menu--wrapper {
+       background:#ffffff;
+       position: absolute;
+       top: 210px;
+       max-height:0;
+       height: 100%;
+       transition: all 0.3s;
+       overflow: hidden;
+    }
+    .mega-menu--wrapper.active {
+        max-height: 500px;
+        z-index: 9;
+    }
+</style>
+
+{% schema %}
+    {
+        "name": "Mega menu",
+        "settings": [
+            {
+                "type": "text",
+                "id": "parent",
+                "label": "Link title",
+                "info": "The mega menu will appear below this parent link"
+            }
+        ],
+        "blocks": [
+            {
+              "type": "column",
+              "name": "Column",
+              "settings": [
+                {
+                  "type": "link_list",
+                  "id": "menu_1",
+                  "label": "Menu 1"
+                },
+                {
+                  "type": "link_list",
+                  "id": "menu_2",
+                  "label": "Menu 2"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "menu_img",
+                    "label": "Image Menu"
+                },
+                {
+                    "type": "url",
+                    "id": "img_link",
+                    "label": "Image Link"
+                },
+                {
+                    "type": "text",
+                    "id": "img_text",
+                    "label": "Image Text" 
+                }
+              ]
+            }
+
+          ],            
+        
+        "presets":[
+            {
+                "name": "Mega menu"
+            }
+        ]
+    }
+{% endschema %}

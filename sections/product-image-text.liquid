@@ -1,0 +1,33 @@
+<div class="section--{{section.id}} image-text--wrapper {% if product.metafields.custom.first_image.value %} image-reverse {% endif %}">
+    <div class="image-text--text">
+        {% if product.metafields.custom.first_title != blank %}
+           <h1>{{prodcut.metafileds.custom.first_title}}</h1>            
+        {% endif %}
+        {% if product.metafileds.custom.first_text !=blank %}
+            <p>{{product.metafileds.custom.first_text}}</p>
+        {% endif %}
+    </div>
+    <div class="image-text--img">
+        <div class="image">
+            {% if product.metafileds.custom.first_image != blank %}
+                {{product.metafileds.custom.first_image | image_url }}
+                {%- if product.metafields.custom.first_image.width >= 360 -%}{{ product.metafields.custom.first_image | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if product.metafields.custom.first_image.width >= 535 -%}{{ product.metafields.custom.first_image | image_url: width: 535 }} 535w,{%- endif -%}
+                {%- if product.metafields.custom.first_image.width >= 750 -%}{{ product.metafields.custom.first_image | image_url: width: 750 }} 750w,{%- endif -%}
+                {%- if product.metafields.custom.first_image.width >= 1070 -%}{{ product.metafields.custom.first_image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                {%- if product.metafields.custom.first_image.width >= 1500 -%}{{ product.metafields.custom.first_image | image_url: width: 1500 }} 1500w,{%- endif -%}           
+            {% endif %}
+        </div>
+        
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Product Image-text",
+        "presets": [
+                {
+                    "name": "Prodcut Image Text"   
+                }
+        ]        
+    }
+{% endschema %}

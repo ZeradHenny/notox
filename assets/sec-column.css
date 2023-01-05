@@ -1,0 +1,26 @@
+.custom-column {
+    width: 80%;
+    margin: 0 auto;
+}
+.custom-column .multicolumn-card__info h3{
+    color: #78967A;
+    font-size: 25px;
+    font-family: 'Montserrat';
+    line-height: 43px;
+    font-weight: bold;
+    text-align: left;
+}
+.multicolumn-card__info .rte p {
+    font-size: 25px;
+    font-family: 'Montserrat';
+    line-height: 1.72;
+    font-weight: 700;
+    text-align: justify;
+}
+
+.multicolumn-list li {
+    padding: 0 25px;
+}
+.media img:hover {
+    opacity: 0.5;
+}

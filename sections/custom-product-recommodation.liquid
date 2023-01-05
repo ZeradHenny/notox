@@ -1,0 +1,112 @@
+<style>
+    .slide-wrapper .slide-text {
+        display: flex;
+        flex-direction: row;
+       
+    }
+    .slide-item {
+        width: 25%;
+    }
+    .slide-text .slide-item .slide-image {
+        width: 100%;
+        padding-top: 100%;
+        position: relative;
+    }
+    .slide-text .slide-item .slide-image img{ 
+        width: 100%;
+        position: absolute;
+        top: 0;
+        height: auto;
+        object-fit: contain;
+    }
+    .section--{{ section.id }}-padding {
+        padding: {{ section.settings.padding }}px;
+        
+    }
+    .slide-arrow svg {
+        width: 12px;
+        height: 12px;
+    }
+    .slick-track {
+        display: flex;
+        gap: 20px;
+    }
+</style>
+{% if template.name == 'product' %}
+    <div class="slide-wrapper section--{{section.id}}-padding" data-image-count={{section.settings.image_count}}>
+        {% if section.settings.title != blank %}
+        <div class="slide--title">
+            <h2>{{section.settings.title}}</h2>
+        </div>
+        {% endif %}
+        <div class="slide-text">
+            {% for slide in product.metafields.slick.picked_image.value %}
+                <div class="slide-item">
+                    <div class="slide-image">
+                        <img srcset="{%- if slide.featured_image.width >= 165 -%}{{ slide.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+                        {%- if slide.featured_image.width >= 360 -%}{{ slide.featured_image | image_url: width: 360 }} 360w,{%- endif -%}
+                        {%- if slide.featured_image.width >= 535 -%}{{ slide.featured_image | image_url: width: 535 }} 535w,{%- endif -%}
+                        {%- if slide.featured_image.width >= 750 -%}{{ slide.featured_image | image_url: width: 750 }} 750w,{%- endif -%}
+                        {%- if slide.featured_image.width >= 1070 -%}{{ slide.featured_image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                        {%- if slide.featured_image.width >= 1500 -%}{{ slide.featured_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                        {{ slide.featured_image | image_url }} {{ slide.featured_image.width }}w"
+                    src="{{ slide.featured_image | image_url: width: 1500 }}"
+                    sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                    alt="{{ slide.featured_image.alt | escape }}"
+                    loading="lazy"
+                    width="{{ slide.featured_image.width }}"
+                    height="{{ slide.featured_image.height }}"
+                    >
+                    </div>
+                    <div class="slide-info">
+                        <span class="product-title">
+                            {{slide.title}} |
+                        </span>
+                        <span class="product-price">
+                            {% render 'price' product:slide %}
+                        </span>
+                    </div>
+                </div>
+            {% endfor %}    
+        </div>
+    </div>    
+{% endif %}
+<script src="{{ 'custom-product-recommodation.js' | asset_url }}" defer="defer"></script>
+{% schema %}
+{
+    "name": "Picked products",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+        },
+        {
+            "type": "range",
+            "id": "padding",
+            "min": 20,
+            "max": 40,
+            "step": 5,
+            "unit": "px",
+            "label": "Padding",
+            "default": 20
+        },
+        {
+            "type": "range",
+            "id": "image_count",
+            "min": 3,
+            "max": 5,
+            "step": 1,
+            "unit": "n",
+            "label": "Image count",
+            "default": 4
+        }
+    ],
+    "presets": [
+        {
+            "name": "Picked products"
+        }
+    ]
+}
+    
+{% endschema %}

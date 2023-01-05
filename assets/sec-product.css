@@ -1,0 +1,72 @@
+.custom-product  {
+    width: 80%;
+    margin: 0 auto;
+}
+.custom-product .product__tax {
+    display: none;
+}
+.custom-product .product__title {
+    color: #78967A;
+    font-size: 90px;
+    font-family: 'Butler';
+    line-height: 108px;
+}
+.product__text  {
+    font-size: 35px;
+    font-family: 'Montserrat';
+    line-height: 42.67px;
+    font-weight: 700; 
+}
+.price-item {
+    font-size: 35px;
+    font-family: 'Montserrat';
+    line-height: 42.67px;
+    font-weight: 700; 
+}
+.price__badge-sold-out {
+    font-size: 25px;
+    font-family: 'Montserrat';
+    line-height: 30.67px; 
+    font-weight: 700; 
+}
+.description {
+    color: #000;
+    font-size: 24.27px;
+    font-family: 'Montserrat';
+    line-height: 41.75px;
+    font-weight: 700;
+    letter-spacing: 4%;
+}
+.product-form__buttons button {
+    font-size: 24.27px;
+    font-family: 'Assistant';
+    line-height: 22.76px;
+    letter-spacing: 4%;
+    padding: 24px 10px;
+    border-radius: 60px;
+    background-color: #D2C8BE;
+    color: #000;
+}
+.button:after, .shopify-challenge__button:after, .customer button:after, .shopify-payment-button__button--unbranded:after{
+    box-shadow: unset;
+}
+.link.product__view-details {
+    display: none;
+}
+.product__media {
+    padding-top: 100% !important;
+}
+@media(max-width:1440px) {
+    .product__text  {
+        font-size: 25px;
+    }
+    .product__title {
+        font-size: 70px;
+    }
+    .price-item {
+        font-size: 25px;
+    }
+    .description {
+        font-size: 17px;
+    }
+}

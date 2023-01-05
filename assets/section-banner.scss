@@ -1,0 +1,209 @@
+.landing-wrapper-left {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+.landing-wrapper-center {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.landing-wrapper-right {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+.landing-wrapper .image-bg {
+    width: 100%;
+}
+.landing-wrapper .text-content {
+    position: absolute;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.landing-wrapper .title {
+    font-family: 'Adorn_Condensed_Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 66px;
+    line-height: 100%;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 20px;
+}
+.landing-wrapper .content {
+    font-family: 'Adorn_Condensed_Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.landing-wrapper .button {
+    font-family: 'Adorn_Condensed_Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    color: #000;
+    margin: 0;
+    width: 150px;
+}
+.landing-wrapper .button:hover {
+    top: -5px;
+    left: -6px;
+    box-shadow: 5px 6px #d2d2d2;
+    border: unset;
+    transition: 1s;
+    font-style: italic;
+    font-weight: bold;
+}
+.text-carou {
+    display: flex;
+    align-items: center;
+    transition: 40s;
+    width: 3000px;
+}
+.text-carou .text1 {
+    font-size: 40px;
+    font-family: fantasy;
+    padding: 0 40px;
+}
+.text-carou .text2 {
+  font-size: 30px;
+  font-family: cursive;
+  padding: 0 40px;
+}
+.text-carou .text3 {
+  font-size: 40px;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 0 70px;
+}
+.text-carou .text4 {
+  font-size: 40px;
+  font-family: fantasy;
+  padding: 0 40px;
+}
+
+// --------------------------------// 
+
+.slide-option {
+  display:flex;
+	justify-content:center;
+	background:#eaeaea;
+	height:100vh;
+	display:flex;
+	align-items:center;
+	
+	
+}
+@media (max-width:992px) { 
+  .slide-option {padding:0 20px 0 20px; }
+}
+.slide-option {
+	margin:0 0 50px 0;	
+}
+.slide-option .no-marg { margin:0 0 0 0; }
+
+.slide-option div.container {
+  transition:all .3s ease;
+}
+
+div.highway-slider {
+	display:flex;
+	justify-content:center;
+	width:100%;
+	
+}
+
+div.highway-slider div.highway-barrier {
+  overflow:hidden;
+  position:relative;
+}
+
+div.highway-slider ul.highway-lane {
+  display:flex;
+  list-style-type: disc;
+  margin: 0;
+  li.highway-car {
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff;
+    color:#343434;
+  }
+}
+
+@keyframes translatestf {
+	0% { transform:translateX(100%);  }
+	100% { transform:translateX(-500%);  }
+}
+
+div.highway-barrier ul.highway-lane {
+  width:500%;
+  
+}
+div.highway-barrier ul.highway-lane li.highway-car {
+  animation:translatestf 30s linear infinite;
+
+}
+
+@keyframes translateinfinite {
+	100% { transform:translateX(calc(-180px * 12));  }
+}
+
+#infinite div.highway-barrier {
+	background:#fff;
+	box-shadow:0 3px 10px -3px rgba(0,0,0,0.3);	
+}
+
+#infinite div.highway-barrier::before, #infinite div.highway-barrier::after {
+		content: " ";
+		position:absolute;
+		z-index:9;
+		width:180px;
+		height:100%;	
+}
+
+#infinite div.highway-barrier::before {
+  top:0;left:0;
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+#infinite div.highway-barrier::after {
+  top:0;right:0;
+  background: linear-gradient(to left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+#infinite div.highway-barrier ul.highway-lane {
+  width:calc(180px * 24);
+}
+
+#infinite div.highway-barrier ul.highway-lane li.highway-car {
+  animation:translateinfinite 25s linear infinite;
+}
+#infinite div.highway-barrier ul.highway-lane li.highway-car::marker{
+  unicode-bidi: unset;
+  content: '';
+}
+#infinite div.highway-barrier ul.highway-lane:hover li.highway-car{
+  animation-play-state:paused;
+}
+#infinite div.highway-barrier ul.highway-lane li.highway-car a span{
+  color: #000;
+  text-decoration: none;
+}
+#infinite div.highway-barrier ul.highway-lane li.highway-car a{
+  text-decoration: none;
+}
+li.highway-car:hover li.highway-car span {
+  font-size: 60px;
+}

@@ -1,0 +1,80 @@
+.custom-page.header {
+    /* position: absolute; */
+    width: 100%;
+}
+.custom-page .header__heading {
+    max-width: 300px;
+}
+.custom-page .header__heading a span {
+    color: #fff;
+    font-size: 41.6px;
+    font-weight: 400;
+    font-family: 'Butler_Regular';
+}
+.custom-page .header__heading a:hover {
+    color: #fff;
+}
+.custom-page.header--middle-left {
+    grid-template-columns: 1fr auto auto;
+}
+.custom-page .header__menu-item span {
+    font-family: 'Montserrat';
+    font-style: Light;
+    font-size: 35px;
+    line-height: 43.6px;
+    color: #D2C8BE;
+}
+.header__inline-menu .list-menu a:hover {
+    text-decoration: none;
+} 
+.header__menu-item:hover span {
+    text-decoration: unset;
+}
+.header__active-menu-item {
+    text-decoration: none;
+}
+.header__icons span {
+    color: #D2C8BE;
+}
+.header__icons a {
+    color: #D2C8BE;
+}
+.banner__heading span {
+    color: #fff;
+    font-size: 100px;
+    font-weight: 400;
+    font-family: 'Butler_Regular';
+    line-height: 1.2;
+    -webkit-text-stroke: 1px #000;
+}
+.banner__text {
+    margin: 34px 0;
+}
+.banner__text span {
+    color: #D2C8BE;
+    font-size: 30px;
+    font-family: 'Montserrat';
+    line-height: 35px;
+    font-weight: bold;
+}
+.banner__buttons a {
+    font-family: 'Assistant';
+    font-size: 24.27px;
+    line-height: 22.76px;
+    letter-spacing: 4%;
+    border-radius: 60px;
+    color: #D2C8BE;
+    border: 5px solid #D2C8BE;
+    padding: 24px 69px;
+}
+
+.button:not([disabled]):hover:after, .shopify-challenge__button:hover:after, .customer button:hover:after, .shopify-payment-button__button--unbranded:hover:after {
+    box-shadow: unset;
+}
+.banner__buttons a::before {
+    box-shadow: unset;
+    box-sizing: unset;
+}
+.banner__buttons a::after {
+    box-shadow: unset;
+}

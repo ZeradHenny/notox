@@ -1,0 +1,13 @@
+{% assign handle = 'cake' %}
+{% case handle %}
+    {% when "cake" %}
+        This is a cake
+    {% when "cookie", "biscult" %}
+        This is a cookie
+    {% else %}
+    This is not a cake or cookie
+{% endcase %}
+
+{%- for item in collection.products -%}
+    {{ product.title }}
+{%- endfor -%}

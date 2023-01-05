@@ -1,0 +1,85 @@
+<style>
+    .cpr-products {
+        display: flex;
+        justify-content: center;
+        gap: 3.3%;
+    }
+    .cpr-product--item {
+        width: 20%;
+    }
+    .cpr-product__image {
+        /* position: relative;
+        overflow: hidden;
+        padding-bottom: 130%; */
+    }
+
+    .cpr-product__image img {
+        /* position: absolute; */
+        width: 100%;
+        height: 100%;
+        /* top: 0;
+        left: 0;
+        object-fit: cover;
+        object-position: center; */
+    }
+</style>
+{% if template.name == 'product' %}
+    <div class="cpr">
+        {% if section.settings.heading != blank %}
+            <div class="cpr__heading">
+                <h2>{{ section.settings.heading }}</h2>
+            </div>
+        {% endif %}
+
+            <div class="cpr-products">
+                {% for p in product.metafields.picked.products.value %}
+                    <div class="cpr-product--item">
+                        <div class="cpr-product__image">
+                            <img
+                                srcset="{%- if p.featured_image.width >= 165 -%}{{ p.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+                                    {%- if p.featured_image.width >= 360 -%}{{ p.featured_image | image_url: width: 360 }} 360w,{%- endif -%}
+                                    {%- if p.featured_image.width >= 535 -%}{{ p.featured_image | image_url: width: 535 }} 535w,{%- endif -%}
+                                    {%- if p.featured_image.width >= 750 -%}{{ p.featured_image | image_url: width: 750 }} 750w,{%- endif -%}
+                                    {%- if p.featured_image.width >= 1070 -%}{{ p.featured_image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                                    {%- if p.featured_image.width >= 1500 -%}{{ p.featured_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                                    {{ p.featured_image | image_url }} {{ p.featured_image.width }}w"
+                                src="{{ p.featured_image | image_url: width: 1500 }}"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                alt="{{ p.featured_image.alt | escape }}"
+                                loading="lazy"
+                                width="{{ p.featured_image.width }}"
+                                height="{{ p.featured_image.height }}"
+                            >
+                        </div>
+                        <div class="loox-rating" data-fetch data-id="{{ product.id }}"></div>
+                        <div class="cpr-product__info">
+                            <span class="cpr-product__title">
+                                {{ p.title }} | 
+                            </span>
+                            <span class="cpr-product__price">
+                                {% render 'price' product: p %}
+                            </span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    </div>
+{% endif %}
+<script type="text/javascript" src="{{ 'custom-product-recommendation.js' | asset_url }}" defer="defer"></script>
+{% schema %}
+{
+    "name": "Picked products",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Picked products"
+        }
+    ]
+}
+{% endschema %}

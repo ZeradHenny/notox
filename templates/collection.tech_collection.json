@@ -1,0 +1,96 @@
+{
+  "sections": {
+    "main-collection-banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "main-product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 20,
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 24
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "disabled": true,
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.<\/p>"
+          }
+        },
+        "email_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email_form"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "84b546e7-ef98-475e-a056-13e1c59b396f": {
+      "type": "collage",
+      "blocks": {
+        "template--14545016389766__84b546e7-ef98-475e-a056-13e1c59b396f-166726257368fe3aa2-1": {
+          "type": "product",
+          "settings": {
+            "product": "the-panda-peanut-butter",
+            "second_image": true
+          }
+        }
+      },
+      "block_order": [
+        "template--14545016389766__84b546e7-ef98-475e-a056-13e1c59b396f-166726257368fe3aa2-1"
+      ],
+      "settings": {
+        "heading": "our best sellers",
+        "heading_size": "h1",
+        "desktop_layout": "right",
+        "mobile_layout": "collage",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main-collection-banner",
+    "main-product-grid",
+    "newsletter",
+    "84b546e7-ef98-475e-a056-13e1c59b396f"
+  ]
+}

@@ -1,0 +1,38 @@
+.custom-image-text .image-with-text__media-item {
+    display: flex;
+    justify-content: space-between;
+}
+.custom-image-text .image-with-text__grid .image-with-text__media-item .image-with-text__media {
+    width: 47%;
+    padding-bottom: unset !important;
+}
+
+.image-with-text__text-item h2 {
+    color: #78967A;
+    font-size: 50px;
+    font-family: 'Montserrat';
+    line-height: 60.95px;
+    font-weight: 700;
+
+}
+.image-with-text__text p {
+    color: #000;
+    font-size: 24.27px;
+    font-family: 'Montserrat';
+    line-height: 41.75px;
+    font-weight: 700;
+    letter-spacing: 4%;
+}
+.image-with-text__text-item a {
+    font-size: 24.27px;
+    font-family: 'Assistant';
+    line-height: 22.76px;
+    letter-spacing: 4%;
+    padding: 24px 190px;
+    border-radius: 60px;
+    background-color: #D2C8BE;
+    color: #000;
+}
+.image-with-text__text-item a::after {
+    box-shadow: unset;
+}
