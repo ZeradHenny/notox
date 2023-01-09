@@ -107,7 +107,7 @@
               {%- when 'title' -%}
                 <h2 class="product__title {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                   {%- if product.title != blank -%}
-                    {{ product.title | escape }}
+                    {{ block.settings.title }}
                   {%- else -%}
                     {{ 'onboarding.product_title' | t }}
                   {%- endif -%}
@@ -316,7 +316,7 @@
               {%- when 'buy_buttons' -%}
                 <div {{ block.shopify_attributes }}>
                   {%- if product != blank -%}
-                    <product-form class="product-form">
+                    <product-form class="a product-form">
                       <div class="product-form__error-message-wrapper" role="alert" hidden>
                         <svg
                           aria-hidden="true"
@@ -668,6 +668,11 @@
       "name": "t:sections.featured-product.blocks.title.name",
       "limit": 1,
       "settings": [
+        {
+          "type": "html",
+          "id": "title",
+          "label": "Product title"
+        },
         {
           "type": "select",
           "id": "heading_size",

@@ -28,7 +28,7 @@
     {% endif %}
 
     {% render 'meta-tags' %}
-
+    {{'custom.css'| asset_url | stylesheet_tag }}
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
@@ -290,5 +290,6 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    {% render 'ly-core-scripts' %}
   </body>
 </html>

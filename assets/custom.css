@@ -266,3 +266,68 @@
         background: #FFD11F;
     }
 }
+/* notox store */
+
+/* announcement */
+.custom-ann .page-width {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+.custom-ann {
+    display: flex;
+    justify-content: center;
+}
+.custom-ann .announcement-bar__message {
+    color: #242323;
+}
+
+@media (max-width: 746px) {
+    custom-ann {
+        display: flex;
+        
+        justify-content: center;
+    }
+}
+
+/* header */
+.custom-header-margin {
+    margin: 0 5rem;
+    background-color: #fff;
+    padding: 0 1rem;
+}
+.header__icons_right {
+    grid-area: icons;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+}
+.header__icons_right a{
+    width: max-content;
+}
+.header__icons_left {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+.product-form__input .form__label {
+    display: none;
+}
+.product-form__input {
+    background-color: #fff;
+    border-radius: 6px;
+}
+.product-form__input .quantity:after {
+    box-shadow: unset;
+}
+@media (max-width:746px) {
+    .header__icons_right .right-text {
+        display: none !important;
+    }
+    .header__icons_left {
+        display: none;
+    }
+}
