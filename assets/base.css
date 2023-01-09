@@ -2364,7 +2364,7 @@ input[type='checkbox'] {
 /* Header icons */
 .header__icons {
   display: flex;
-  grid-area: icons;
+  grid-area: navigation;
   justify-self: end;
 }
 
@@ -2434,7 +2434,7 @@ menu-drawer + .header__search {
 }
 
 .header > .header__search {
-  grid-area: left-icon;
+  grid-area: navigation;
   justify-self: start;
 }
 
